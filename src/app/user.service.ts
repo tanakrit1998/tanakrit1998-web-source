@@ -8,13 +8,13 @@ export class UserService {
 
   friends = [
     {
-      name: 'Franky Lee Jones',
-      pic: 'frank.png',
+      name: 'Flock',
+      pic: 'folk.png',
       position: 'CEO',
     },
     {
-      name: 'Alice in Wonderland',
-      pic: 'alisa.jpg',
+      name: 'Fha',
+      pic: 'fha.jpg',
       position: 'Secretary',
     },
     {
@@ -31,7 +31,7 @@ export class UserService {
 
   _getUsers() {
     return this.http.post(
-      'http://cs.sci.ubu.ac.th:7512/59110440084/user/_search',
+      'http://cs.sci.ubu.ac.th:7512/59110440170/user/_search',
       {
         query: {
         
@@ -43,7 +43,7 @@ export class UserService {
   _saveUser(usr: string, passwd: string) {
     console.log(`user=${usr} passwd:${passwd}`);
     return this.http.post(
-      'http://cs.sci.ubu.ac.th:7512/59110440084/user/_create',
+      'http://cs.sci.ubu.ac.th:7512/59110440170/user/_create',
       {
         user: usr,
         password: passwd,
