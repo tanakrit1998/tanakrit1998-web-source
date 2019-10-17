@@ -8,18 +8,18 @@ export class UserService {
 
   friends = [
     {
-      name: 'Flock',
-      pic: 'folk.png',
+      name: 'Bos',
+      pic: 'boss.jpg',
       position: 'CEO',
     },
     {
-      name: 'Fha',
-      pic: 'fha.jpg',
+      name: 'Phon',
+      pic: 'phon.jpg',
       position: 'Secretary',
     },
     {
-      name: 'Pat Tracy Johnson',
-      pic: 'pat.jpg',
+      name: 'Wat',
+      pic: 'wat.jpg',
       position: 'IT Support',
     }
   ];
@@ -31,19 +31,27 @@ export class UserService {
 
   _getUsers() {
     return this.http.post(
-      'http://cs.sci.ubu.ac.th:7512/59110440170/user/_search',
+      'http://cs.sci.ubu.ac.th:7512/59110440084/user/_search',
       {
         query: {
-        
+          /*
+          wildcard: {
+            user: { value: '*an*' }
+          }
+          */
         }
       }
-    ); 
+    ); /*.subscribe( data => {
+      this.users = data['result']['hits']
+      console.log(this.users)
+    }, error => {});
+    */
   }
 
   _saveUser(usr: string, passwd: string) {
     console.log(`user=${usr} passwd:${passwd}`);
     return this.http.post(
-      'http://cs.sci.ubu.ac.th:7512/59110440170/user/_create',
+      'http://cs.sci.ubu.ac.th:7512/59110440084/user/_create',
       {
         user: usr,
         password: passwd,
@@ -54,5 +62,4 @@ export class UserService {
   getFriends() {
     return this.friends;
   }
-  
 }
